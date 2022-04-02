@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Invites";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main" id="invites">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row">
+                    <h2>
+                        Invites
+                        <a class="btn btn-success pull-right" href="@Url.Action("SendInvite","CMS")">Send invite</a>
+                    </h2>
+                </div>
+                @*Just to speed up things i am using simple html table. in actual project we should use data tables having feature pagination sorting filtering*@
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Student Name</th>
+                            <th>Student Email</th>
+                            <th>Date</th>
+                            <th>Link</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="invite in invites">
+                            <td>{{invite.InviteId}}</td>
+                            <td>{{invite.StudentName}}</td>
+                            <td>{{invite.StudentEmail}}</td>
+                            <td>{{invite.SentDate}}</td>
+                            <td>{{invite.InviteLink}}</td>
+                            <td>{{invite.Status == 1 ? 'Active' : 'InActive'}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Application/invites.js"></script>
+}
+

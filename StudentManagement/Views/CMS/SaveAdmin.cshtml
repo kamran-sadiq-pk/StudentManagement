@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main" id="addAdmin">
+    <div class="container center_div">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form action="" autocomplete="off" id="admin-form">
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">First Name</label></div>
+                            <div class="col-lg-9"><input class="form-control" required v-model="admin.FirstName" id="FirstName" name="FirstName" type="text"></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Last Name</label></div>
+                            <div class="col-lg-9"><input class="form-control" required v-model="admin.LastName" name="LastName" type="text"></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Email</label></div>
+                            <div class="col-lg-9"><input class="form-control" required type="email" v-model="admin.Email"></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Status</label></div>
+                            <div class="col-lg-9">
+                                <select ref="selectedStatus" v-model="admin.Status" class="form-control">
+                                    <option value="-1">Select Status</option>
+                                    <option v-for="status in statuses" :value="status.StatusId">{{status.Name}}</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-9"> <input type="button" v-on:click="SaveAdmin" value="Save" class="btn btn-primary" style="width:100%"></div>
+                        </div><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Scripts/Application/saveadmin.js"></script>
+}

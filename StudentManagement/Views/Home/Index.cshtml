@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | StudentManagement</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+</head>
+<body>
+    <div class="container body-content">
+        <div class="container center_div">
+            <div class="row">
+                <div class="jumbotron" style="text-align:center">
+                    <p>Welcome to the site</p>
+                    <div>
+                        <a href="@Url.Action("Registration","Account")">
+                            <input type="button" class="btn btn-primary" value="Register" />
+                        </a>
+                        <a href="@Url.Action("Login","Account")">
+                            <input type="button" class="btn btn-success" value="Login" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top:auto" />
+        <footer>
+            <p>&copy; @DateTime.Now.Year StudentManagement</p>
+        </footer>
+    </div>
+</body>
+</html>
+

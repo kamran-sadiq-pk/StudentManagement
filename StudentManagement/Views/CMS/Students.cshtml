@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main" id="students">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row">
+                    <h2>
+                        Students
+                    </h2>
+
+                </div>
+                @*Just to speed up things i am using simple html table. in actual project we should use data tables having feature pagination sorting filtering*@
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="student in students">
+                            <td>{{student.StudentId}}</td>
+                            <td>{{student.FirstName}}</td>
+                            <td>{{student.LastName}}</td>
+                            <td>{{student.Email}}</td>
+                            <td>{{student.CourseName}}</td>
+                            <td><p>{{student.Status}}</p></td>
+                            <td>
+                                <a class="btn btn-primary" :href="'@Url.Action("StudentDetails","CMS")?id=' + student.StudentId">View Details</a>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Application/students.js"></script>
+}
+
+
+

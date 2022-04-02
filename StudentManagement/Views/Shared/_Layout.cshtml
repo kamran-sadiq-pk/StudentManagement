@@ -1,0 +1,98 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - StudentManagement</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.3.3.7.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+<body class="">
+    <nav class="mnb navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="ic fa fa-bars"></i>
+                </button>
+                <div style="padding: 15px 0; position:relative;">
+                    <a href="#" id="msbo"><i class="ic fa fa-bars"></i></a>
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">En</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kamran Sadiq <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Upgrade</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Index","Home")">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
+                    <li><a href="#"><i class="fa fa-comment-o"></i></a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" style="position:relative" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="msb" id="msb">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <div class="brand-wrapper">
+                    <!-- Brand -->
+                    <div class="brand-name-wrapper">
+                        <a class="navbar-brand" href="#">
+                            Admin Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="side-menu-container">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Dashboard","CMS")"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li class=""><a href="@Url.Action("Admins","CMS")"><i class="fa fa-user"></i>Admins</a></li>
+                    <li><a href="@Url.Action("Students","CMS")"><i class="fa fa-graduation-cap"></i>Students</a></li>
+                    <li><a href="@Url.Action("Courses","CMS")"><i class="fa fa-book"></i>Courses</a></li>
+                    <li><a href="@Url.Action("Invites","CMS")"><i class="fa fa-book"></i>Invites</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="mcw">
+        <div class="cv">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            $('#msbo').on('click', function () {
+                $('body').toggleClass('msb-x');
+            });
+        }());
+    </script>
+
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

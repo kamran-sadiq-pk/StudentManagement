@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "StudentDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main" id="studentDetails">
+    <div class="container center_div">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row">
+                    <h2>
+                        Student Details
+                        <button v-if="studentDetail.StatusId == 3" v-on:click="Verify(studentDetail.StudentId,studentDetail.StatusId)" class="btn btn-success pull-right">Verify</button>
+                    </h2>
+                </div>
+
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form action="" autocomplete="off" id="detail-form">
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">First Name</label></div>
+                            <div class="col-lg-3"><label for="">{{studentDetail.FirstName}}</label></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Last Name</label></div>
+                            <div class="col-lg-3"><label for="">{{studentDetail.LastName}}</label></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Email</label></div>
+                            <div class="col-lg-3"><label for="">{{studentDetail.Email}}</label></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Status</label></div>
+                            <div class="col-lg-3"><label for="">{{studentDetail.Status}}</label></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Course</label></div>
+                            <div class="col-lg-3"><label for="">{{studentDetail.CourseName}}</label></div>
+                        </div><br>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Scripts/Application/studentdetails.js"></script>
+}

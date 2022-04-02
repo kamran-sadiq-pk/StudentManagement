@@ -1,0 +1,63 @@
+﻿@model StudentManagement.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+ 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | StudentManagement</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+
+
+
+</head>
+<body>
+
+    <div class="container body-content">
+        <div class="container center_div">
+            <div class="row">
+                <div class="jumbotron" style="text-align:center">Login to your account</div>
+                <div class="col-sm-6 col-sm-offset-3">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, htmlAttributes: new { id = "loginform", autocomplete = "off" }))
+                    {
+                       
+                        <div class="row">
+                            <div class="col-lg-2">@Html.LabelFor(a => a.Email)</div>
+                            <div class="col-lg-10">@Html.TextBoxFor(a => a.Email, new { @class = "form-control" })</div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-lg-2">@Html.LabelFor(a => a.Password)</div>
+                            <div class="col-lg-10">@Html.TextBoxFor(a => a.Password, new { @class = "form-control", type = "Password" })</div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-10"> <input type="submit" value="Login" class="btn btn-primary" style="width:100%" /></div>
+                        </div><br />
+
+                        <div style="color:red;">@Html.ValidationSummary()</div>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top:auto  " />
+        <footer>
+            <p>&copy; @DateTime.Now.Year StudentManagement</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = null;
+}
+
+
+ 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | StudentManagement</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+
+
+</head>
+<body>
+    <div class="container body-content" id="student_registration">
+        <div class="container center_div">
+            <div class="row">
+                <div  class="jumbotron" style="text-align:center">Create account</div>
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form action="" autocomplete="off" id="registration-form" v-on:submit="SaveStudent">
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">First Name</label></div>
+                            <div class="col-lg-9"><input class="form-control" required v-model="student.FirstName" id="Email" name="Email" type="text" value=""></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Last Name</label></div>
+                            <div class="col-lg-9"><input class="form-control" required v-model="student.LastName" name="Password" type="text" value=""></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Email</label></div>
+                            <div class="col-lg-9"><input class="form-control" required type="email" v-model="student.Email" value=""></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Password</label></div>
+                            <div class="col-lg-9"><input class="form-control" required v-model="student.Password" type="Password" value=""></div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"><label for="">Course</label></div>
+                            <div class="col-lg-9">
+                                <select ref ="selectedCourse" class="form-control">
+                                    <option value="-1">Select Course</option>
+                                    <option v-for="course in courses" :value="course.CourseId">{{course.CourseName}}</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-9"> <input v-on:click="" type="submit" value="Submit" class="btn btn-primary" style="width:100%"></div>
+                        </div><br>
+
+                        <div style="color:red;">@Html.ValidationSummary()</div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top:auto  " />
+        <footer>
+            <p>&copy; @DateTime.Now.Year StudentManagement</p>
+             
+        </footer>
+    </div>
+
+    <script src="~/Scripts/Application/registration.js"></script>
+   
+</body>
+</html>
+
+
+

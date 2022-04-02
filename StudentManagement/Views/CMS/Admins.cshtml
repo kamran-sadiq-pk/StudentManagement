@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Admins";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main" id="admins">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row">
+                    <h2>
+                        Admins
+                        <a class="btn btn-success pull-right" href="@Url.Action("SaveAdmin","CMS")">New Admin</a>
+                    </h2>
+
+                </div>
+                @*Just to speed up things i am using simple html table. in actual project we should use data tables having feature pagination sorting filtering*@
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="admin in admins">
+                            <td>{{admin.UserId}}</td>
+                            <td>{{admin.FirstName}}</td>
+                            <td>{{admin.LastName}}</td>
+                            <td>{{admin.Email}}</td>
+                            <td>{{admin.Status == 1 ? 'Active' : 'InActive'}}</td>
+                            <td>
+                                <a class="btn btn-primary" :href="'@Url.Action("SaveAdmin","CMS")?id=' + admin.UserId">Edit</a>
+                                <button v-on:click="Delete(admin.UserId)" type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Application/admins.js"></script>
+}

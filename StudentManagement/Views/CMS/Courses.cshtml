@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main" id="courses">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row">
+                    <h2>
+                        Courses
+                        <a class="btn btn-success pull-right" href="@Url.Action("SaveCourse","CMS")">New Course</a>
+                    </h2>
+
+                </div>
+
+
+                @*Just to speed up things i am using simple html table. in actual project we should use data tables having feature pagination sorting filtering*@
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Course Name</th>
+                            <th>Author</th>
+                            <th>Credit Hours</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="course in courses">
+                            <td>{{course.CourseId}}</td>
+                            <td>{{course.CourseName}}</td>
+                            <td>{{course.Author}}</td>
+                            <td>{{course.CreditHours}}</td>
+                            <td>{{course.Status == 1 ? 'Active' : 'InActive'}}</td>
+                            <td>
+                                <a class="btn btn-primary" :href="'@Url.Action("SaveCourse","CMS")?id=' + course.CourseId">Edit</a>
+                                @*<button v-on:click="Delete(course.CourseId)" type="button" class="btn btn-danger">Delete</button>*@
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Application/courses.js"></script>
+}
